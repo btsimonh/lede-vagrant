@@ -25,6 +25,7 @@ apt_package_install_list=()
 # status before adding them to the apt_package_install_list array.
 apt_package_check_list=(
 
+  # specifics listed on openwrt site
   git-core
   build-essential
   libssl-dev
@@ -33,6 +34,9 @@ apt_package_check_list=(
   gawk
   subversion
   mercurial
+  # samba so we will be able to see out git repo
+  # as the git repo must be within the VM on windows?
+  samba
 
   # ntp service to keep clock current
   ntp
@@ -177,13 +181,26 @@ package_install() {
 tools_install() {
 echo "tools_install."
 
+# make a completely open share on /home/vagrant !!!
+cp /srv/config/smb.conf /etc/samba/
+# and restart samba
+/etc/init.d/samba restart
 
 }
 
 get_lede() {
 echo "get_lede."
 
-git clone https://github.com/lede-project/source.git /srv/source/lede
+git clone https://github.com/lede-project/source.git ~/lede
+
+cd ~/lede
+#./scripts/feeds update -a
+#./scripts/feeds install -a
+
+#copy .config file over if we have one
+cp /srv/source/myconfig ./.config
+
+
 
 }
 
@@ -211,4 +228,4 @@ network_check
 end_seconds="$(date +%s)"
 echo "-----------------------------"
 echo "Provisioning complete in "$(( end_seconds - start_seconds ))" seconds"
-echo "For further setup instructions, visit http://vvv.dev"
+echo "now login on ssh, and cd ~/lede, then make menuconfig, then make"
