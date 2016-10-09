@@ -200,6 +200,8 @@ cd ~/lede
 #copy .config file over if we have one
 cp /srv/source/myconfig ./.config
 
+#copy .quiltrc recommended into ~/
+cp /srv/config/.quiltrc ~/
 
 
 }
