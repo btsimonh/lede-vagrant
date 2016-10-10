@@ -67,13 +67,13 @@ and the provision.sh will copy it to your source folder after getting the Lede s
 
 Other Caveats:
 
-1. Linux & OSX hosts:
+Linux & OSX hosts:
 
 Vagrant is available for Linux & OSX,  but there are settings in the vagrant file which 
 are specific to these OS which i may not have set - so it would be great if someone more
 familiar with Vagrant was to check over the file and correct it...
 
-2. x64 VM base image & virtualisation:
+x64 VM base image & virtualisation:
 
 on 'older' machines (e.g. low end core 2), the processors may not have the CPU virtualisation 
 technologies required to run a 64 bit VM.  It should work fine with a 32 bit variety - just change
