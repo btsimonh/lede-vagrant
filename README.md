@@ -58,6 +58,10 @@ you just have to ignore the files removed/replaced with random filenames.
 It would be nice if we could get the Lede source to NOT have filenames which can't be 
 represented in windows....  I'll work on that :).
 
+Default configuration:
+if you have an existing .config file, you can place this in <root folder>/source/.config
+and the provision.sh will copy it to your source folder after getting the Lede sources.
+
 
 Other Caveats:
 1. Linux & OSX hosts:
