@@ -79,6 +79,12 @@ on 'older' machines (e.g. low end core 2), the processors may not have the CPU v
 technologies required to run a 64 bit VM.  It should work fine with a 32 bit variety - just change
 ubuntu/trusty64 to ubuntu/trusty32 in the vagrant file.  (this is untested).
 
+CPU Quantity:
+
+The Vagrant file specifies the number of CPUs as one, and resets it every time!.
+For Lede/OpenWRT build time, you may wish to comment out this line, and set manually in Virtualbox 
+after the machine has been created.
+
 Other Documentation:
 
 The vagrant file i based this on was a variation of:
